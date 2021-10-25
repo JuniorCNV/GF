@@ -1,16 +1,14 @@
 # Google Sheets + Node.js/Express
-Simple Node.js/Express app (with EJS frontend) that integrates with Google Sheets to read/update data. This application demos the functionality with a simple "Video Request" app that uses a form to add a new row to a Google Sheet.
+Aplicativo Node.js / Express simples (com front-end EJS) que se integra ao Planilhas Google para ler / atualizar dados.
 
-## Tutorial
-Find the YouTube tutorial here: https://www.youtube.com/watch?v=PFJNJQCU_lo
 
 ## Setup
-You need to add a file to the root of this project called "credentials.json". You can find a guide on how to do this in my YouTube tutorial above.
+Você precisa adicionar um arquivo à raiz deste projeto chamado "credentials.json"
 
-Then run `npm install` to install dependencies.
+Em seguida, execute `npm install` para instalar as dependências.
 
-## Run locally (port 1337)
-Run `nodemon index.js`
+## Run locally (port 3000)
+npm run dev que vai rodar  
 
 ## Copyright
-(c) 2021 James Grimshaw. You are free to do what you wish with this code.
+(c) 2021 JuJu da IGF . Você é livre para fazer o que quiser com este código desde que use suas credencial.
