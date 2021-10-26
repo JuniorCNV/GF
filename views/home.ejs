@@ -1,0 +1,97 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/google-sheets-node/public/style/home.css"> -->
+    <link href="/style/home.css" rel="stylesheet" type="text/css">
+    <title>Programa de Relacionamento - Bazar GF</title>
+</head>
+<header>
+    <div class="header">
+        <img class="img-header" src="/img/BAZAR GF DOAR BENS WHITE.png" alt="img-bazar">
+    </div>
+</header>
+
+<body>
+
+    <div class="input-group">
+        <input type="search" class="form-control rounded" placeholder="Pesquisar" aria-label="Search" aria-describedby="search-addon" />
+        <button type="button" class="btn btn-outline-primary">Pesquisar</button>
+    </div>
+
+    <section class="dash">
+        <div>
+            <span class="titulo">Clientes no programa</span>
+            <span class="numero"><%= clientes [0][11] %></span>
+        </div>
+
+        <div>
+            <span class="titulo">Descontos aplicados</span>
+            <span class="numero"><%= clientes [0][12] %></span>
+        </div>
+
+        <div>
+            <span class="titulo">Clientes regulares</span>
+            <span class="numero"><%= clientes [0][13]  %></span>
+        </div>
+
+        <div>
+            <span class="titulo">Clientes Falcão</span>
+            <span class="numero"><%= clientes [0][14] %></span>
+        </div>
+    </section>
+
+    <section class="cliente-home">
+        <table class="table table-hover">
+            <thead>
+                <h1 class="titulo2">Clientes perto de trocar o benefício</h1>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Qtde de Compras</th>
+                    <th scope="col">Tipo de Cliente</th>
+                    <th scope="col">Editar</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <% for (let i = 0; i < 10; i++) {   %>
+
+
+                    <tr class="linha">
+                        <th>
+                            <%= clientes[i][0] %>
+                        </th>
+                        <td>
+                            <%= clientes[i][1] %>
+                        </td>
+                        <td>
+                            <%= clientes[i][10] %>
+                        </td>
+                        <td>
+                            <%= clientes[i][6] %>
+                        </td>
+                        <td>
+                            <a class="" href="/clientes/<%= clientes[i][0] %>/edit">Editar</a>
+                        </td>
+                    </tr>
+                    <% } %>
+
+
+
+
+            </tbody>
+        </table>
+
+
+    </section>
+
+
+
+    </div>
+
+</body>
+
+</html>

@@ -17,17 +17,19 @@
             <h1>
                 Editar cliente
             </h1>
-            <!-- enctype="multipart/form-data" usar só em forms -->
-            <form action="/clientes/<%= cliente[0] %>/update" method="put" enctype="">
+            <form action="/clientes/<%= cliente[0]%>/atualizar/?_method=PUT" method="post">
+                <!-- <form action="/clientes/<%= cliente[0]%>?_method=PUT" method="put" enctype="multipart/form-data"> -->
                 <div class="mb-3">
-                    <label for="" class="">cliente: <%= cliente[2] %></label>
+
+                    <label for="exampleInputEmail1" class="form-label">Nome: <%= cliente[2] %> </label>
+                    <input type="text" value=" <%= cliente[2] %>" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Valor</label>
-                    <input type="text" name="valor" value="<%= cliente[11]%>" class="form-control" id="exampleInputPassword1">
+                    <label>Quantidade de compra</label>
+                    <input type="text" name="valor" value="<%= cliente[11]%>" class="value">
                 </div>
 
-                <button type="submit" href="/clientes/<%= cliente[0] %>/update" class=" btn btn-primary ">Salvar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
 
         </div>

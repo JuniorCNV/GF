@@ -1,14 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
-
+//chama o aquivo aonde esta a logica 
 const clientesController = require('../controllers/clientesController');
 
-router.get('/clientes', clientesController.get);
-router.get('/clientes/:id/edit', clientesController.edit)
-router.put('/clientes/:id/uptade', clientesController.update)
 
-// router.get('/clientes/id/edit', clientesController.edit)
-// router.get('/cliente', clientesController.get); // vai mandar para a  pagina da Amanda 
+//envia todos os clientes
+router.get('/', clientesController.get);
+//edita um unico cliente 
+router.get('/clientes/:id/edit', clientesController.edit);
+//sobe apenas um cliente 
+// router.get('/clientes/:id/atualizar', clientesController.update);
+router.post('/clientes/:id/atualizar', clientesController.update)
+
+// router.get('/', clientesController.get); // vai mandar para a  pagina da Amanda 
 
 module.exports = router
