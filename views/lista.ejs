@@ -10,34 +10,7 @@
 <%- include('partials/header')  %>
 
     <body>
-        <nav class="navbar navbar-light bg-light">
-            <form action="/pesquisa" method="post" class="form-inline">
-                <input class="form-control mr-sm-2" name="pesquisa" value="" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-            </form>
-        </nav>
 
-        <section class="dash">
-            <div>
-                <span class="titulo">Clientes no programa</span>
-                <span class="numero"><%= clientes [0][11] %></span>
-            </div>
-
-            <div>
-                <span class="titulo">Descontos aplicados</span>
-                <span class="numero"><%= clientes [0][12] %></span>
-            </div>
-
-            <div>
-                <span class="titulo">Clientes regulares</span>
-                <span class="numero"><%= clientes [0][13]  %></span>
-            </div>
-
-            <div>
-                <span class="titulo">Clientes Falcão</span>
-                <span class="numero"><%= clientes [0][14] %></span>
-            </div>
-        </section>
 
         <section class="cliente-home">
             <table class="table table-hover">
@@ -54,28 +27,26 @@
                 </thead>
                 <tbody>
 
-                    <% for (let i = 0; i < 1; i++) {   %>
-
-
+                    <% cliente.forEach(cliente => { %>
 
                         <tr class="linha">
                             <th>
-                                <%= clientes[i][0] %>
+                                <%= cliente[0]%>
                             </th>
                             <td>
-                                <%= clientes[i][1] %>
+                                <%= cliente[1] %>
                             </td>
                             <td>
-                                <%= clientes[i][10] %>
+                                <%= cliente[10] %>
                             </td>
                             <td>
-                                <%= clientes[i][6] %>
+                                <%= cliente[6] %>
                             </td>
                             <td>
-                                <a class="" href="/clientes/<%= clientes[i][0] %>/edit">Editar</a>
+                                <a class="" href="/clientes/<%= cliente[0] %>/edit">Editar</a>
                             </td>
                         </tr>
-                        <% } %>
+                        <% }) %>
 
 
 

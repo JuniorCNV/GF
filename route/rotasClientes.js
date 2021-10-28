@@ -12,6 +12,8 @@ router.get('/clientes/:id/edit', clientesController.edit);
 // router.get('/clientes/:id/atualizar', clientesController.update);
 router.post('/clientes/:id/atualizar', clientesController.update)
 
+router.post('/pesquisa', clientesController.getCliente)
+
 // router.get('/', clientesController.get); // vai mandar para a  pagina da Amanda 
 
 module.exports = router

@@ -1,0 +1,11 @@
+{
+    "folders": [
+		{
+			"name": "bazar dev",
+			"path": "..\\.."
+		}
+	],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "bazar dev"
+    }
+}

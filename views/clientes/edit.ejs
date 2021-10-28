@@ -12,28 +12,48 @@
 
 <body>
 
-    <main>
-        <div class="container my-5 d-block">
-            <h1>
-                Editar cliente
-            </h1>
-            <form action="/clientes/<%= cliente[0]%>/atualizar/?_method=PUT" method="post">
-                <!-- <form action="/clientes/<%= cliente[0]%>?_method=PUT" method="put" enctype="multipart/form-data"> -->
-                <div class="mb-3">
+    <%- include('../partials/header')  %>
 
-                    <label for="exampleInputEmail1" class="form-label">Nome: <%= cliente[2] %> </label>
-                    <input type="text" value=" <%= cliente[2] %>" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label>Quantidade de compra</label>
-                    <input type="text" name="valor" value="<%= cliente[11]%>" class="value">
-                </div>
+        <main>
+            <div class="container my-5 d-block">
+                <h1>
+                    Editar cliente
+                </h1>
+                <form action="/clientes/<%= alvo[0]%>/atualizar/?_method=PUT" method="post">
+                    <!-- <form action="/alvos/<%= alvo[0]%>?_method=PUT" method="put" enctype="multipart/form-data"> -->
+                    <div class="mb-3">
 
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
+                        <label for="exampleInputEmail1" class="form-label">Nome: <%= alvo[1] %> </label>
+                        <br>
+                        <label for="exampleInputEmail1" class="form-label">Cliente do tipo: <%= alvo[6] %> </label>
+                        <!-- <input type="text" value=" <%= alvo[2] %>" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
+                    </div>
+                    <div class="mb-3">
+                        <label>Quantidade de compra</label>
+                        <input type="text" name="valor" value="<%= alvo[10]%>">
 
-        </div>
-    </main>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <div>
+                        <% if (alvo[10] >= 12 && alvo[6] == "CR"){%>
+                            <br>
+                            <button type="submit" name="maisUm" value="1" class="btn btn-primary">Resgatar Desconto</button>
+                            <%  }
+                        %>
+                    </div>
+                    <div>
+                        <% if (alvo[10] >= 6 && alvo[6] == "CF"){%>
+                            <br>
+                            <button type="submit" name="maisUm" value="1" class="btn btn-primary">Resgatar Desconto</button>
+                            <%  }
+                        %>
+                    </div>
+
+                </form>
+
+            </div>
+        </main>
 
 
 </body>
