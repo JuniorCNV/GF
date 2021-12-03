@@ -20,7 +20,7 @@
                     Editar cliente
                 </h1>
 
-                <form action="/clientes/<%= alvo[0]%>/atualizar/?_method=PUT" method="post">
+                <form action="/bazar-desconto/clientes/<%= alvo[0]%>/atualizar/?_method=PUT" method="post">
                     <div>
                         <table class="table table-hover">
                             <thead>
@@ -58,7 +58,8 @@
                                             %>
                                         </div>
                                         <div class="mb-3">
-                                            <% if (alvo[10] >= 6 && alvo[6] == "CF"){%>
+                                            <% if (alvo[10] >= 6 && alvo[6] == "CF"){
+                                                console.log("meu alvo é "+alvo[10]);%>
                                                 <br>
                                                 <button type="submit" name="maisUm" value="1" class="btn btn-primary">Resgatar Desconto</button>
                                                 <%  }

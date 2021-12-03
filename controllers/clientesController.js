@@ -24,34 +24,41 @@ const clientesController = {
         //     spreadsheetId,
         // });
 
-        const getRows = await googleSheets.spreadsheets.values.get({
+        // const getRows = await googleSheets.spreadsheets.values.get({
+        //     auth,
+        //     spreadsheetId,
+        //     range: "Sheet1!A2:Z",
+        // });
+        const getLinha = await googleSheets.spreadsheets.values.get({
             auth,
             spreadsheetId,
             range: "Sheet1!A2:Z",
         });
-        const clientes = getRows.data.values;
-        // res.render('clientes/clientes', { clientes });
-        res.render('home', { clientes });
-        // res.send(getRows.data.values);
-        //pegar o elementp
-        function selectElement(selector) {
-            return document.querySelector(selector);
-        }
+        const getDesh = await googleSheets.spreadsheets.values.get({
+            auth,
+            spreadsheetId,
+            range: "Sheet2!A2:Z",
+        });
+        const desh = getDesh.data.values;
+        
+        // const clientes = getRows.data.values;
+        // console.log(desh[0]);
+        const ordem = getLinha.data.values;
 
-        // function getResults() {
-        //     const search = pesquisa.value;
-        //     for (let i = 0; i < clientes.length; i++) {
-        //         if (clientes[i][1].toLocaleLowerCase().includes(search.toLocaleLowerCase())) {
-        //             selectElement('.search-results').innerHTML += `
-        //             <div class="search-results-item">
-        //                 <span class = " search-item">${clientes[i][1]}</span>
-        //             </div>
-        //             `
-        //         }
-        //     }
-        // }
-        // selectElement('.search-box').addEventListener('keyup', getResults);
 
+        const ordemCompra = ordem.sort((a, b) => {
+
+            if (a[10] > b[10]) return 1;
+
+            if (a[10] < b[10]) return -1;
+
+            return 0;
+
+        }).reverse();
+        // console.log(ordemCompra);
+        const clientes = ordemCompra;
+
+        res.render('home', { clientes, desh });
     },
     getCliente: async(req, res) => {
         // console.log("entrei no getclientes");
@@ -102,6 +109,7 @@ const clientesController = {
             spreadsheetId,
             range: "Sheet1!A2:Z",
         });
+        
         const clientes = getRows.data.values;
         const alvo = clientes.find(cliente => cliente[0] == id)
 
@@ -126,11 +134,10 @@ const clientesController = {
         const getRows = await googleSheets.spreadsheets.values.get({
             auth,
             spreadsheetId,
-            range: `Sheet1!M${idAt + 1}`,
+            range: `Sheet1!M2`,
         });
         const clientes = getRows.data.values;
-        var descontoBac = parseInt(clientes[0]) + 1;
-
+        var descontoBac = parseInt(clientes) + 1;
         const desconto = parseInt(maisUm);
 
         if (desconto == 1) {
@@ -147,7 +154,7 @@ const clientesController = {
             };
             const hisDesconto = {
                 spreadsheetId: spreadsheetId,
-                range: `Sheet1!M${idAt + 1}:Z`,
+                range: `Sheet1!M2`,
                 valueInputOption: 'RAW', // TODO: Update placeholder value.
                 resource: {
                     values: [
@@ -181,7 +188,7 @@ const clientesController = {
 
 
         // return res.send(id + " separador " + `${id +1}` + " pearador 2 " + `${idAt + 1}`);
-        return res.redirect("/")
+        return res.redirect("/bazar-desconto")
 
     }
 }

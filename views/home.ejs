@@ -13,7 +13,7 @@
         <nav class="pesquisa">
 
 
-            <form action="/pesquisa" method="post" class="form-inline">
+            <form action="/bazar-desconto/pesquisa" method="post" class="form-inline">
                 <div class="form-inline">
                     <input class="form-control mr-sm-2" name="pesquisa" value="" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
@@ -25,22 +25,22 @@
         <section class="dash">
             <div>
                 <span class="titulo">Clientes no programa</span>
-                <span class="numero"><%= clientes [0][11] %></span>
+                <span class="numero"><%= desh[0][0] %></span>
             </div>
 
             <div>
                 <span class="titulo">Descontos aplicados</span>
-                <span class="numero"><%= clientes [0][12] %></span>
+                <span class="numero"><%= desh[0][1] %></span>
             </div>
 
             <div>
                 <span class="titulo">Clientes regulares</span>
-                <span class="numero"><%= clientes [0][13]  %></span>
+                <span class="numero"><%= desh[0][2]  %></span>
             </div>
 
             <div>
                 <span class="titulo">Clientes Falcão</span>
-                <span class="numero"><%= clientes [0][14] %></span>
+                <span class="numero"><%= desh[0][3] %></span>
             </div>
         </section>
 
@@ -60,9 +60,7 @@
                 <tbody>
 
 
-                    <% for (let i = 0; i < 1; i++) {   %>
-
-
+                    <% for (let i = 0; i < 10; i++) {   %>
 
                         <tr class="linha">
                             <th>
@@ -78,7 +76,7 @@
                                 <%= clientes[i][6] %>
                             </td>
                             <td>
-                                <a class="" href="/clientes/<%= clientes[i][0] %>/edit">Editar</a>
+                                <a class="" href="/bazar-desconto/clientes/<%= clientes[i][0] %>/edit">Editar</a>
                             </td>
                         </tr>
                         <% } %>

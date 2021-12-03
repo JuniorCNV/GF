@@ -8,6 +8,7 @@ const clientesController = require('../controllers/clientesController');
 router.get('/', clientesController.get);
 //edita um unico cliente 
 router.get('/clientes/:id/edit', clientesController.edit);
+router.get('/ordemCompra/:id/edit', clientesController.edit);
 //sobe apenas um cliente 
 // router.get('/clientes/:id/atualizar', clientesController.update);
 router.post('/clientes/:id/atualizar', clientesController.update)
